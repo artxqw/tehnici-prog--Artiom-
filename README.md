@@ -1,1 +1,1 @@
-Laboratoarele de tehnici de programare
+Laboratoarele la Tehnici de programare
