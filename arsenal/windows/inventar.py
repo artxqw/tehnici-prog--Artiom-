@@ -11,11 +11,8 @@ class Proces:
     cale: str
 
     def e_suspect(self):
-        # TODO: True daca una din CAI_SUSPECTE e in self.cale
-        for CAI in CAI_SUSPECTE:
-            if CAI in self.cale:
-                return True
-
+        cale = self.cale.lower()
+        return any(c.lower() in cale for c in CAI_SUSPECTE)
 
 p = Proces(3120, "update.exe", "ana", r"C:\Users\ana\AppData\Local\Temp\update.exe")
 print(p.pid, p.nume)
@@ -36,9 +33,7 @@ class Eveniment:
     mesaj: str
 
     def e_suspect(self):
-        # TODO: True daca self.id in SUSPECTE_ID SAU self.nivel == "critical"
-        if self.id in SUSPECTE_ID or self.nivel == "critical":
-            return True
+        return self.id in SUSPECTE_ID or self.nivel == "critical"
 
 def evenimente_din_json(cale):
     with open(cale, encoding="utf-8") as f:
